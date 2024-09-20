@@ -4,6 +4,8 @@ const mongoose = require("mongoose")
 const cors = require("cors")
 const Register_routes = require("./Routes/Register_routes")
 const ConnectToDataBase = require("./db")
+const Causeroutes = require("./Routes/Causeroutes")
+const Donationroutes = require("./Routes/Donationroutes")
 
 const app = express()
 
@@ -20,5 +22,9 @@ app.listen(PORT,()=>{
 })
 
 
-app.use("/api", Register_routes)
+app.use("/api", 
+    Register_routes,
+    Causeroutes, 
+    Donationroutes)
+
 

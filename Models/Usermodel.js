@@ -1,15 +1,21 @@
 const mongoose = require("mongoose")
-const { STRING } = require("mysql/lib/protocol/constants/types")
+const { STRING, ENUM } = require("mysql/lib/protocol/constants/types")
 
 
 const UserRegistration = mongoose.Schema({
 
     "FirstName" : {type : String},
     "LastName" : {type : String},
-    "eamil" : {type : String, require:true}
+    "eamil" : {type : String, require:true},
+    "password" : {type : String, require:true},
+    "role" : {type: String, Enumerator:['organizer', 'Donor'], default:"Donor"},
+    "Date_of_reg": {type : Date, default: Date.now}
+    
 })
 
+Date.now()
 
-const user_reg = mongoose.model("/user_reg", UserRegistration)
 
-module.exports = user_reg
+const User = mongoose.model("/User", UserRegistration)
+
+module.exports = User
