@@ -6,6 +6,10 @@ const Register_routes = require("./Routes/Register_routes")
 const ConnectToDataBase = require("./db")
 const Causeroutes = require("./Routes/Causeroutes")
 const Donationroutes = require("./Routes/Donationroutes")
+const bcrypt = require("bcrypt")
+const jsonwebtoken = require("jsonwebtoken")
+const Login = require("./Controllers/Logincols")
+const loginroute = require("./Routes/loginroute")
 
 const app = express()
 
@@ -25,6 +29,9 @@ app.listen(PORT,()=>{
 app.use("/api", 
     Register_routes,
     Causeroutes, 
-    Donationroutes)
+    Donationroutes,
+    loginroute
+    
+)
 
 
