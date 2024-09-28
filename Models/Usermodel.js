@@ -1,8 +1,8 @@
 const mongoose = require("mongoose")
-const { STRING, ENUM } = require("mysql/lib/protocol/constants/types")
 
 
-const UserRegistration = mongoose.Schema({
+
+const UserRegistration = new mongoose.Schema({
 
     "FirstName" : {type : String},
     "LastName" : {type : String},
