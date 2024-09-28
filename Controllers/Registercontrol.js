@@ -1,5 +1,5 @@
 const User = require("../Models/Usermodel")
-const bcrpt = require("bcrypt")
+const bcrptjs = require("bcryptjs")
 const jsonwebtoken = require("jsonwebtoken")
 
 
@@ -9,7 +9,7 @@ const jsonwebtoken = require("jsonwebtoken")
 const Registration = async (req, res)=>{
     
     
-    const {FirstName, LastName, email,password, role} = req.body
+    const {FirstName, LastName, email, password, role} = req.body
 
     
 
@@ -33,7 +33,7 @@ const Registration = async (req, res)=>{
         res.status(400).json({message:"please add your password"}) 
 
     }
-    const hashedpassword = await bcrpt.hash(password , 12)
+    const hashedpassword = await bcrptjs.hash(password , 12)
     const NewUser = new User({
         FirstName, LastName, email, password: hashedpassword, role
     })
